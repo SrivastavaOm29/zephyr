@@ -218,6 +218,7 @@ static int i2c_emul_transfer(const struct device *dev, struct i2c_msg *msgs, uin
 	}
 
 	emul = i2c_emul_find(dev, addr);
+
 	if (!emul) {
 		return -EIO;
 	}
@@ -245,7 +246,6 @@ static int i2c_emul_init(const struct device *dev)
 {
 	struct i2c_emul_data *data = dev->data;
 	int rc;
-
 	sys_slist_init(&data->emuls);
 
 	rc = emul_init_for_bus(dev);

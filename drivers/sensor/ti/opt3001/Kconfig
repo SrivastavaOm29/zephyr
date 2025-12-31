@@ -11,6 +11,13 @@ config OPT3001
 	help
 	  Enable driver for OPT3001 light sensors.
 
+config OPT3001_EMUL
+	bool "OPT3001 emulator"
+	depends on I2C_EMUL
+	default y if ZTEST
+	help
+	  Enable I2C emulator for OPT3001 (used in native_sim tests).
+
 if OPT3001
 
 module = OPT3001

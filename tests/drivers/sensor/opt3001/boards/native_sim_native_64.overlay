@@ -1,9 +1,26 @@
-&i2c0 {
-	status = "okay";
+/* 
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
-	opt3001: opt3001@44 {
-		compatible = "ti,opt3001";
-		reg = <0x44>;
-		label = "OPT3001";
+/* {
+	aliases {
+		accel = &bmi_i2c;
 	};
 };
+
+&i2c0 {
+	   bmi_i2c: opt3001@44 {
+		compatible = "ti,opt3001";
+		reg = <0x44>;
+	};
+}; */
+
+/* Attach OPT3001 to the existing native_sim I2C emulation controller */
+
+&i2c0 {
+    opt3001@44 {
+        compatible = "ti,opt3001";
+        reg = <0x44>;
+    };
+};
+
